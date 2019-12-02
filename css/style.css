@@ -1,0 +1,21 @@
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* outline: 1px red dotted; */
+}
+.allContainer{
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.header{
+    text-align: center;    
+}
+.block{
+    width:100%;
+    margin: auto;
+    padding: 30px;
+}
+
