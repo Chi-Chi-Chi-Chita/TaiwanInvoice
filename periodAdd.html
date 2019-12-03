@@ -30,7 +30,7 @@
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 發票管理 }
+            { 新增發票字軌 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -56,7 +56,7 @@
                                             <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage">發票字軌管理</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
@@ -100,54 +100,76 @@
                 </div>
                 <!-- 右邊查詢內容 -->
                 <div class="col-9">
-                    <form class="block card mb-3">
-                        <div>查詢發票開立日</div>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <input type="date" class="form-control" id="inputEmail4" placeholder="Email">
-                            </div>
-                            <div class="form-group col-1 d-flex align-items-center justify-content-center">至</div>
-                            <div class="form-group col">
-                                <input type="date" class="form-control" id="inputPassword4" placeholder="Password">
-                            </div>
-                        </div>
-                        <div>買受人查詢</div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="請輸入關鍵字">
-                        </div>
-                    </form>
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-                        <button type="button" class="btn-lg btn-light mr-5">查詢</button>
-                        <button type="button" class="btn-lg btn-light ">重設</button>
-                    </div>
-
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center">開立日期</th>
-                                <th scope="col" class="text-center">發票號碼</th>
-                                <th scope="col" class="text-center">買受人</th>
-                                <th width="15%" scope="col" class="text-center">金額</th>
-                                <th width="10%" scope="col" class="text-center">狀態</th>
-                                <th scope="col" class="text-center">處理</th>
+                                <th width="10%" scope="col" class="text-center">年份</th>
+                                <th width="20%" scope="col" class="text-center">期別</th>
+                                <th width="10%" scope="col" class="text-center">字軌</th>
+                                <th scope="col" class="text-center">起迄號碼</th>
                             </tr>
                         </thead>
                         <tbody id="invoiceform">
                             <tr id="firstTr">
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td width=31% class="text-center">
-                                    <a href="invoiceAdd.html" class="btn btn-info">修改</a>
-                                    <a href="invoiceDelete.html" class="btn btn-info">作廢</a>
-                                    <a href="invoiceAdd.html" class="btn btn-info">複製</a>
+                                <td>
+                                    <input type="text" class="form-control">
+
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control">
+
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control">
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="起始號碼">
+                                        </div>
+                                        <div class="col-0 d-flex align-items-center justify-content-centerf">~</div>
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="結束號碼">
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <button type="button" class="btn-lg btn-light mr-5" data-toggle="modal"
+                            data-target="#exampleModalCenter">
+                            新增字軌
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">新增字軌成功</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        您可以在字軌管理中修改及刪除字軌
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button type="button" class="btn-lg btn-light ">重設</button>
+                    </div>
+
+                    <!-- Button trigger modal -->
+
 
                 </div>
 
