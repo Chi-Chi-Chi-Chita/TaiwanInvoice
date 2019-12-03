@@ -25,9 +25,9 @@ function addTbody() {
     tr.innerHTML = `
     <td><input type="text" class="form-control itemName" placeholder="品名" aria-label="Username"
             aria-describedby="basic-addon1"></td>
-    <td><input type="text" class="form-control amount" placeholder="數量" aria-label="Username"
+    <td><input type="text" class="form-control amount" aria-label="Username"
             aria-describedby="basic-addon1"></td>
-    <td><input type="text" class="form-control unitPrice" placeholder="單價(未稅)"
+    <td><input type="text" class="form-control unitPrice"
             aria-label="Username" aria-describedby="basic-addon1"></td>
     <td class="subtotal"></td>
     <td><button type="button" class="btn btn-danger btnCal">刪除</button></td>`
