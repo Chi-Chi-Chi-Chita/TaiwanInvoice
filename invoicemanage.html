@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>電子發票小幫手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="allContainer">
+        <ul class="nav justify-content-end">
+            <div class="dropdown">
+                <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">
+                        person_outline
+                    </i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">會員資料修改</a>
+                    <a class="dropdown-item" href="#">登出</a>
+                </div>
+            </div>
+
+        </ul>
+        <h1 class="header bg-warning mt-1 mb-4 py-2">
+            { 發票管理 }
+        </h1>
+        <!------------ 內容 ------------>
+        <div class="container">
+            <div class="row">
+                <!-- 左邊選單 -->
+                <div class="col-3">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        發票
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">新增發票字軌</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">發票號碼字軌管理</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html">發票號碼開立</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoicemanage.html" tabindex="-1"
+                                                aria-disabled="true">發票管理</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        客製化管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">買受人建檔</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">買受人維護</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- 右邊查詢內容 -->
+                <div class="col-9">
+                    <form class="block card mb-3">
+                        <div>查詢發票開立日</div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="date" class="form-control" id="inputEmail4" placeholder="Email">
+                            </div>
+                            <div class="form-group col-1 d-flex align-items-center justify-content-center">至</div>
+                            <div class="form-group col">
+                                <input type="date" class="form-control" id="inputPassword4" placeholder="Password">
+                            </div>
+                        </div>
+                        <div>買受人查詢</div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="inputAddress" placeholder="請輸入關鍵字">
+                        </div>
+                    </form>
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <button type="button" class="btn-lg btn-light mr-5">查詢</button>
+                        <button type="button" class="btn-lg btn-light ">重設</button>
+                    </div>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">開立日期</th>
+                                <th scope="col" class="text-center">發票號碼</th>
+                                <th scope="col" class="text-center">買受人</th>
+                                <th width="15%" scope="col" class="text-center">金額</th>
+                                <th width="10%" scope="col" class="text-center">狀態</th>
+                                <th scope="col" class="text-center">處理</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceform">
+                            <tr id="firstTr">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td width=31% class="text-center">
+                                    <button type="button" class="btn btn-info">修改</button>
+                                    <button type="button" class="btn btn-info">作廢</button>
+                                    <button type="button" class="btn btn-info">複製</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!------------ 存檔及下載 ------------>
+        <button type="button" class="btn btn-warning btn-lg btn-block output">存檔及CSV 匯出</button>
+
+
+
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/all.js"></script>
+
+    </div>
+</body>
+
+</html>
