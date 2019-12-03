@@ -30,7 +30,7 @@
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 發票字軌管理 }
+            { 發票明細及下載 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -126,30 +126,35 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center">年份</th>
-                                <th scope="col" class="text-center">期別</th>
-                                <th scope="col" class="text-center">起迄號碼</th>
+                                <th scope="col" class="text-center">發票期別</th>
+                                <th scope="col" class="text-center">發票號碼</th>
+                                <th scope="col" class="text-center">買受人</th>
+                                <th scope="col" class="text-center">金額</th>
                                 <th scope="col" class="text-center">狀態</th>
-                                <th scope="col" class="text-center">處理</th>
                             </tr>
                         </thead>
                         <tbody id="invoiceform">
                             <tr id="firstTr">
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td width="13%" class="text-center">
-                                    <a href="#" class="btn btn-info">鎖定</a>
-                                </td>
-                                <td width="13%" class="text-center">
-                                    <a href="invoiceList.html" class="btn btn-info">明細</a>
-                                </td>
+                                <td width="40%"></td>
+                                <td width="13%"></td>
+                                <td width="13%" class="text-center">己使用</td>
                             </tr>
                         </tbody>
+
                     </table>
+
+                    <!------------ 下載 PDF 或 EXCEL ------------>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button type="button" class="btn btn-outline-primary mr-3">PDF檔案格式下載</button>
+                        <button type="button" class="btn btn-outline-primary">EXCEL檔案格式下載</button>
+
+                    </div>
 
 
                 </div>
+
 
             </div>
         </div>
