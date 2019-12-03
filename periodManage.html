@@ -30,7 +30,7 @@
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 發票管理 }
+            { 發票字軌管理 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -53,10 +53,10 @@
                                 <div class="card-body">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
+                                            <a class="nav-link" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
@@ -104,16 +104,18 @@
                         <div>查詢發票開立日</div>
                         <div class="form-row">
                             <div class="form-group col">
-                                <input type="date" class="form-control" id="inputEmail4" placeholder="Email">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="年">
+                            </div>
+                            <div class="form-group col">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="期別">
                             </div>
                             <div class="form-group col-1 d-flex align-items-center justify-content-center">至</div>
                             <div class="form-group col">
-                                <input type="date" class="form-control" id="inputPassword4" placeholder="Password">
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="年">
                             </div>
-                        </div>
-                        <div>買受人查詢</div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="inputAddress" placeholder="請輸入關鍵字">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="期別">
+                            </div>
                         </div>
                     </form>
                     <div class="d-flex align-items-center justify-content-center mb-3">
@@ -124,11 +126,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-center">開立日期</th>
-                                <th scope="col" class="text-center">發票號碼</th>
-                                <th scope="col" class="text-center">買受人</th>
-                                <th width="15%" scope="col" class="text-center">金額</th>
-                                <th width="10%" scope="col" class="text-center">狀態</th>
+                                <th scope="col" class="text-center">年份</th>
+                                <th scope="col" class="text-center">期別</th>
+                                <th scope="col" class="text-center">起迄號碼</th>
+                                <th scope="col" class="text-center">狀態</th>
                                 <th scope="col" class="text-center">處理</th>
                             </tr>
                         </thead>
@@ -137,12 +138,11 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td width=31% class="text-center">
-                                    <a href="invoiceAdd.html" class="btn btn-info">修改</a>
-                                    <a href="invoiceDelete.html" class="btn btn-info">作廢</a>
-                                    <a href="invoiceAdd.html" class="btn btn-info">複製</a>
+                                <td width="13%" class="text-center">
+                                    <a href="invoiceAdd.html" class="btn btn-info">鎖定</a>
+                                </td>
+                                <td width="13%" class="text-center">
+                                    <a href="invoiceAdd.html" class="btn btn-info">明細</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -153,10 +153,6 @@
 
             </div>
         </div>
-
-        <!------------ 存檔及下載 ------------>
-        <button type="button" class="btn btn-warning btn-lg btn-block output">存檔及CSV 匯出</button>
-
 
 
         <script src="js/jquery-3.4.1.min.js"></script>
