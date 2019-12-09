@@ -38,7 +38,7 @@ form.addEventListener('submit', function (e) {
 
     xhr.open("POST", "http://invoice.rocket-coding.com/invAccounts/GetRegister");//寫地址
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
+    xhr.withCredentials = true;
 
     xhr.send(data);
 
