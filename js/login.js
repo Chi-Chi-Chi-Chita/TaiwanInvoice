@@ -1,4 +1,7 @@
-var data = "Password=qq123&UniformNumbers=29186700";
+var data = {
+    "Password": "qq123",
+    "UniformNumbers": "29186700"
+};
 
 let form = document.querySelector('#login')
 form.addEventListener('submit', function (e) {
@@ -7,7 +10,9 @@ form.addEventListener('submit', function (e) {
     var memberAccount = formEl.memberAccount.value;
     var memberPwd = formEl.memberPwd.value;
 
-    data = `Password=${memberPwd}&UniformNumbers=${memberAccount}`
+    data.Password = `${memberPwd}`
+    data.UniformNumbers = `${memberAccount}`
+    console.log(data);
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
@@ -19,16 +24,16 @@ form.addEventListener('submit', function (e) {
                     alert('認証失敗')
                 }
             } else {
-                alert('夾啦誒夾㕸')
+                alert('伺服器QQ')
             }
         }
     });
 
     xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/GetLogin");
     xhr.withCredentials = true;
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-Type", "application/json");
 
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 })
 
 
