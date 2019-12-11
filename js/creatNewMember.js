@@ -4,7 +4,7 @@ let uniformNumbersValueData = {}
 //檢查統編
 let uniformNumbersInput = document.querySelector('#uniformNumbers');
 
-uniformNumbersInput.addEventListener('blur', function (e) {
+uniformNumbersInput.addEventListener('keyup', function (e) {
     e.preventDefault();
     let uniformNumbersValue = uniformNumbersInput.value
     // console.log(uniformNumbersValue.length);
