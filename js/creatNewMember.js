@@ -1,21 +1,78 @@
-var data = "CompName=%E4%B9%9D%E5%AE%AE%E6%A0%BC&UniformNumbers=12345678&Password=pizza&MngrEmail=markwuintw%40gmail.com&MngrPhoneNumber=0928021359&CompAddress=%E9%AB%98%E5%B8%82%E9%BC%93%E5%B1%B1%E5%8D%80%E4%B8%AD%E8%8F%AF%E4%B8%80%E8%B7%AF952%E8%99%9F&CompPhoneNumber=075542324&verif=0&MngrName=%E5%8D%80%E5%8D%80%E5%8D%80%E5%A1%94";
+var data = {};
+let uniformNumbersValueData = {}
 
+//檢查統編
+let uniformNumbersInput = document.querySelector('#uniformNumbers');
 
-// 對表單做監聽
+uniformNumbersInput.addEventListener('blur', function (e) {
+    e.preventDefault();
+    let uniformNumbersValue = uniformNumbersInput.value
+    // console.log(uniformNumbersValue.length);
+    uniformNumbersValueData = { "UniformNumbers": uniformNumbersValue }
+
+    let info = document.querySelector('#info')
+    let createBtn = document.querySelector('#createBtn')
+
+    if (uniformNumbersValue.length == 8) {
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+                console.log(this.responseText);
+                if (this.status == 200) {
+                    if (this.responseText == 'true') {
+                        // console.log('這個統編註冊過了')
+                        info.textContent = "這個統編註冊過了"
+                        createBtn.disabled = true;
+                    } else {
+                        info.textContent = ''
+                        console.log("沒有註冊過")
+                        createBtn.disabled = false;
+                    }
+                } else {
+                    alert('唉呦喂呀伺服器哭哭')//伺服器打回來的狀況
+                }
+            }
+        });
+
+        xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/OnlyAccount");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.send(JSON.stringify(uniformNumbersValueData));
+    } else {
+        // console.log('請輸入8個字元')
+        info.textContent = '請輸入8個字元的統編'
+        createBtn.disabled = true;
+    }
+})
+
+// 對表單的 submit 做監聽
 let form = document.querySelector('#creatNewMember');
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var formEl = this.elements;
-    var compName = formEl.compName.value;
-    var uniformNumbers = formEl.uniformNumbers.value;
-    var compAddress = formEl.compAddress.value;
-    var compPhoneNumber = formEl.compPhoneNumber.value;
-    var mngrName = formEl.mngrName.value;
-    var mngrPhoneNumber = formEl.mngrPhoneNumber.value;
-    var pwd = formEl.pwd.value;
-    var email = formEl.mngrEmail.value;
+    let formEl = this.elements;
+    let compName = formEl.compName.value;
+    let uniformNumbers = formEl.uniformNumbers.value;
+    let compAddress = formEl.compAddress.value;
+    let compPhoneNumber = formEl.compPhoneNumber.value;
+    let mngrName = formEl.mngrName.value;
+    let mngrPhoneNumber = formEl.mngrPhoneNumber.value;
+    let pwd = formEl.pwd.value;
+    let email = formEl.mngrEmail.value;
 
-    data = `CompName=${compName}&UniformNumbers=${uniformNumbers}&Password=${pwd}&MngrEmail=${email}&MngrPhoneNumber=${mngrPhoneNumber}&CompAddress=${compAddress}&CompPhoneNumber=${compPhoneNumber}&verif=0&MngrName=${mngrName}`
+    data = {
+        "CompName": compName,
+        "UniformNumbers": uniformNumbers,
+        "Password": pwd,
+        "MngrName": mngrName,
+        "MngrEmail": email,
+        "MngrPhoneNumber": mngrPhoneNumber,
+        "CompAddress": compAddress,
+        "CompPhoneNumber": compPhoneNumber,
+    }
+    console.log(data);
 
     var xhr = new XMLHttpRequest();
 
@@ -37,10 +94,10 @@ form.addEventListener('submit', function (e) {
     });
 
     xhr.open("POST", "http://invoice.rocket-coding.com/invAccounts/GetRegister");//寫地址
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.withCredentials = true;
 
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 
 })
 
