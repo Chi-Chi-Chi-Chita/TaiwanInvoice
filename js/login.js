@@ -1,19 +1,23 @@
-var data = {
-    "Password": "qq123",
-    "UniformNumbers": "29186700"
-};
+var data = {};
 
+//對 form 的 submit 監聽
 let form = document.querySelector('#login')
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     var formEl = this.elements;
     var memberAccount = formEl.memberAccount.value;
     var memberPwd = formEl.memberPwd.value;
 
-    data.Password = `${memberPwd}`
-    data.UniformNumbers = `${memberAccount}`
+    data = {
+        "Password": memberPwd,
+        "UniformNumbers": memberAccount,
+    }
     console.log(data);
+
     var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             console.log(this.responseText);
@@ -29,8 +33,7 @@ form.addEventListener('submit', function (e) {
         }
     });
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/GetLogin");
-    xhr.withCredentials = true;
+    xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/Login");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
