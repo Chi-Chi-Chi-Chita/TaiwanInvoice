@@ -36,7 +36,7 @@ uniformNumbersInput.addEventListener('keyup', function (e) {
             }
         });
 
-        xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/OnlyAccount");
+        xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/CheckAcUn");
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.send(JSON.stringify(uniformNumbersValueData));
@@ -93,7 +93,7 @@ form.addEventListener('submit', function (e) {
         }
     });
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/invAccounts/GetRegister");//寫地址
+    xhr.open("POST", "http://invoice.rocket-coding.com/invAccounts/CreadeAcInfo");//寫地址
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.withCredentials = true;
 
