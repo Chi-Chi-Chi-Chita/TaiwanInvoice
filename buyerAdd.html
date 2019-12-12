@@ -30,7 +30,7 @@
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 買受人建檔 }
+            { 顧客資料建檔 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -66,7 +66,6 @@
                                                 aria-disabled="true">發票管理</a>
                                         </li>
                                     </ul>
-
                                 </div>
                             </div>
                         </div>
@@ -84,65 +83,67 @@
                                 <div class="card-body">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="buyerSet.html">買受人建檔</a>
+                                            <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">買受人維護</a>
+                                            <a class="nav-link" href="buyerManage.html">顧客資料維護</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
                 </div>
                 <!-- 右邊查詢內容 -->
                 <div class="col-9">
-
                     <form id="buyerAdd">
                         <div class="card px-3 py-3">
                             <div class="form-group row">
                                 <label for="buyerCompanyName" class="col-sm-2 col-form-label">企業名稱</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerCompanyName" placeholder="企業名稱">
+                                    <input type="text" class="form-control" id="buyerCompanyName" placeholder="企業名稱"
+                                        required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerUniformNum" class="col-sm-2 col-form-label">統一編號</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerUniformNum" placeholder="統一編號">
+                                    <input type="text" class="form-control" id="buyerUniformNum" placeholder="請輸入統一編號"
+                                        required pattern="\d{8}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerCompanyAdd" class="col-sm-2 col-form-label">公司地址</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerCompanyAdd" placeholder="公司地址">
+                                    <input type="text" class="form-control" id="buyerCompanyAdd" placeholder="請輸入公司登記地址"
+                                        required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerCompanyTel" class="col-sm-2 col-form-label">聯絡電話</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerCompanyTel" placeholder="聯絡電話">
+                                    <input type="tel" class="form-control" id="buyerCompanyTel"
+                                        placeholder="請輸入市內聯絡電話 e.g:071234567" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerContactName" class="col-sm-2 col-form-label">聯絡人</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerContactName" placeholder="聯絡人">
+                                    <input type="text" class="form-control" id="buyerContactName" placeholder="請輸入聯絡人">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerContactMobile" class="col-sm-2 col-form-label">聯絡手機</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerContactMobile" placeholder="聯絡手機">
+                                    <input type="mobile" class="form-control" id="buyerContactMobile"
+                                        placeholder="請輸入聯絡手機 e.g:0912345678" pattern="\d{10}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="buyerContactEmail" class="col-sm-2 col-form-label">聯絡信箱</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buyerContactEmail" placeholder="聯絡手機">
+                                    <input type="email" class="form-control" id="buyerContactEmail"
+                                        placeholder="請輸入聯絡信箱" required>
                                 </div>
                             </div>
                         </div>
