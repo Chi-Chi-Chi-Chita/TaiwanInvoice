@@ -1,13 +1,104 @@
+//賣方 input 的 DOM
+let sellTaxNumber = document.querySelector('#sellTaxNumber');
+let sellName = document.querySelector('#sellName');
+let sellAdd = document.querySelector('#sellAdd');
+let sellTel = document.querySelector('#sellTel');
+
+//抓賣方 API 及 自動帶入賣方
+var sellData;
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/LoadCliInfo", true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.send();
+
+xhr.onload = function () {
+    if (xhr.status !== 200) { return; }
+    sellData = JSON.parse(this.responseText);
+
+    showSellInfo();
+}
+
+function showSellInfo() {
+    sellTaxNumber.value = sellData[0].UniformNumbers;
+    sellName.value = sellData[0].CompName;
+    sellAdd.value = sellData[0].CompAddress;
+    sellTel.value = sellData[0].CompPhoneNumber;
+}
+
+// 顧客公司名稱的自動完成
+let buyName = document.querySelector('#buyName');
+let dataList = document.querySelector('#json-datalist')
+
+let buyTaxNumber = document.querySelector('#buyTaxNumber');
+let buyAdd = document.querySelector('#buyAdd');
+let buyTel = document.querySelector('#buyTel');
+
+
+buyName.addEventListener('input', function (e) {
+    if (this.value == '') {
+        dataList.innerHTML = '';
+        return;
+    }
+
+    let dataListOption = document.querySelectorAll('#json-datalist option')
+    console.log(dataList);
+    if (dataListOption.length !== 0) {
+        dataListOption.forEach(function (item) {
+            if (item.value == buyName.value) {
+                console.log(item);
+                let itemObj = JSON.parse(item.dataset.rawdata);
+                console.log(itemObj);
+                buyTaxNumber.value = itemObj.UniformNumbers;
+                buyAdd.value = itemObj.CompAddress;
+                buyTel.value = itemObj.CompPhoneNumber;
+                return;
+            }
+        })
+    }
+
+    let buyerSearchData = { 'term': this.value }
+
+    var xhrBuyerData = new XMLHttpRequest(); // 透過 HTTP 跟對方打招呼
+    xhrBuyerData.withCredentials = true;
+
+    xhrBuyerData.open("POST", "http://invoice.rocket-coding.com/InvClientInfoes/AutoCliCn");
+    xhrBuyerData.setRequestHeader("Content-Type", "application/json");
+    xhrBuyerData.send(JSON.stringify(buyerSearchData));
+
+    xhrBuyerData.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            if (this.status == 200) {
+                // console.log(this.responseText);
+                if (this.responseText !== '[]') {
+                    var jsonOptions = JSON.parse(this.responseText);
+                    dataList.innerHTML = '';
+                    // console.log(dataList);
+                    // console.log(jsonOptions)
+                    jsonOptions.forEach(function (item) {
+                        // Create a new <option> element.
+                        var option = document.createElement('option');
+                        // console.log(option);
+                        // Set the value using the item in the JSON array.
+                        option.value = item.CompName;
+                        option.dataset.rawdata = JSON.stringify(item);
+                        // Add the <option> element to the <datalist>.
+                        dataList.appendChild(option);
+                    })
+                }
+            }
+        }
+    })
+
+})
+
+
+
 /*大家的輸入*/
-let sellTaxNumber = document.querySelector('.sellTaxNumber');
-let sellName = document.querySelector('.sellName');
-let sellAdd = document.querySelector('.sellAdd');
-let sellTel = document.querySelector('.sellTel');
-let buyTaxNumber = document.querySelector('.buyTaxNumber');
-let buyName = document.querySelector('.buyName');
-let buyAdd = document.querySelector('.buyAdd');
-let buyTel = document.querySelector('.buyTel');
-let invoiceNumber = document.querySelector('.invoiceNumber');
+let invoicePeriod = document.querySelector('#invoicePeriod')
+let invoiceNumber = document.querySelector('#invoiceNumber');
 let invoiceDate = document.querySelector('.invoiceDate');
 let invoiceTime = document.querySelector('.invoiceTime');
 let taxExcluded = document.querySelector('#taxExcluded');
