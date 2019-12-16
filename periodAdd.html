@@ -24,7 +24,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="#">登出</a>
+                    <a class="dropdown-item" href="login.html">登出</a>
                 </div>
             </div>
 
@@ -84,10 +84,10 @@
                                 <div class="card-body">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">買受人建檔</a>
+                                            <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">買受人維護</a>
+                                            <a class="nav-link" href="buyerManage.html">顧客資料維護</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,56 +100,63 @@
                 </div>
                 <!-- 右邊查詢內容 -->
                 <div class="col-9">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th width="10%" scope="col" class="text-center">年份</th>
-                                <th width="20%" scope="col" class="text-center">期別</th>
-                                <th width="10%" scope="col" class="text-center">字軌</th>
-                                <th scope="col" class="text-center">起迄號碼</th>
-                            </tr>
-                        </thead>
-                        <tbody id="invoiceform">
-                            <tr id="firstTr">
-                                <td>
-                                    <input type="text" class="form-control">
-
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control">
-
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control">
-                                </td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="起始號碼">
+                    <form id=periodAddForm>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th width="15%" scope="col" class="text-center">年份</th>
+                                    <th width="18%" scope="col" class="text-center">期別</th>
+                                    <th width="10%" scope="col" class="text-center">字軌</th>
+                                    <th scope="col" class="text-center">起迄號碼</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceform">
+                                <tr id="firstTr">
+                                    <td>
+                                        <input type="text" class="form-control" list="yearDatalist" id="yearAdd">
+                                        <datalist id="yearDatalist"></datalist>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" list="periodOption" id="period">
+                                        <datalist id="periodOption">
+                                            <option value="1月-2月"></option>
+                                            <option value="3月-4月"></option>
+                                            <option value="5月-6月"></option>
+                                            <option value="7月-8月"></option>
+                                            <option value="9月-10月"></option>
+                                            <option value="11月-12月"></option>
+                                        </datalist>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="letter">
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="起始號碼"
+                                                    id="startNum">
+                                            </div>
+                                            <div class="col-0 d-flex align-items-center justify-content-centerf">~</div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="結束號碼" id="endNum">
+                                            </div>
                                         </div>
-                                        <div class="col-0 d-flex align-items-center justify-content-centerf">~</div>
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="結束號碼">
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-
-                        <button type="button" class="btn-lg btn-light mr-5">新增字軌</button>
-                        <button type="button" class="btn-lg btn-light ">重設</button>
-                    </div>
-
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <button type="submit" class="btn-lg btn-light mr-5">新增字軌</button>
+                            <button type="button" class="btn-lg btn-light ">重設</button>
+                        </div>
+                    </form>
                 </div>
-
             </div>
         </div>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/all.js"></script>
+        <script src="js/periodAdd.js"></script>
     </div>
 </body>
 
