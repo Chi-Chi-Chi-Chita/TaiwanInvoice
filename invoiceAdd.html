@@ -24,7 +24,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="#">登出</a>
+                    <a class="dropdown-item" href="login.html">登出</a>
                 </div>
             </div>
 
@@ -141,26 +141,24 @@
                             <input type="text" class="form-control" id="buyTel">
                         </div>
                     </form>
-
                     <form class="block card mb-3">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="invoicePeriod">發票字軌</label>
-                                <input type="text" class="form-control" id="invoicePeriod" placeholder="Invoice Period">
+                                <input type="text" class="form-control" id="invoicePeriod" list="invoicePeriodList">
+                                <datalist id="invoicePeriodList"></datalist>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="invoiceNumber">發票號碼</label>
-                                <input type="text" class="form-control invoiceNumber" id="invoiceNumber"
-                                    placeholder="Invoice Number">
+                                <input type="text" class="form-control" id="invoiceNumber" list="invoiceNumberList">
+                                <datalist id="invoiceNumberList"></datalist>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputDate">發票開立日期</label>
-                            <input type="date" class="form-control invoiceDate" id="inputDate"
-                                placeholder="Invoice Number">
+                            <input type="date" class="form-control" id="invoiceDate">
                         </div>
                     </form>
-
 
                     <button type="button" class="btn btn-primary btnAdd">發票品項新增</button>
 
@@ -168,7 +166,7 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="text-center">品名</th>
-                                <th width="10%" scope="col" class="text-center">數量</th>
+                                <th width="12%" scope="col" class="text-center">數量</th>
                                 <th width="15%" scope="col" class="text-center">單價(未稅)</th>
                                 <th width="15%" scope="col" class="text-center">金額</th>
                                 <th width="13%" scope="col" class="text-center">處理</th>
@@ -176,10 +174,14 @@
                         </thead>
                         <tbody id="invoiceform">
                             <tr id="firstTr">
-                                <td><input type="text" class="form-control itemName" placeholder="品名"
-                                        aria-label="Username" aria-describedby="basic-addon1"></td>
-                                <td><input type="text" class="form-control amount" aria-label="Username"
-                                        aria-describedby="basic-addon1"></td>
+                                <td>
+                                    <input type="text" class="form-control itemName" placeholder="品名"
+                                        aria-label="Username" aria-describedby="basic-addon1">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control amount" placeholder="數量"
+                                        aria-label="Username" aria-describedby="basic-addon1">
+                                </td>
                                 <td><input type="text" class="form-control unitPrice" aria-label="Username"
                                         aria-describedby="basic-addon1"></td>
                                 <td class="subtotal"></td>
