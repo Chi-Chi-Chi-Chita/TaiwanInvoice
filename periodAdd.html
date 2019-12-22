@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>電子發票小幫手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="allContainer">
+        <ul class="nav justify-content-end">
+            <div class="dropdown">
+                <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">
+                        person_outline
+                    </i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">會員資料修改</a>
+                    <a class="dropdown-item" href="logout.html">登出</a>
+                </div>
+            </div>
+
+        </ul>
+        <h1 class="header bg-warning mt-1 mb-4 py-2">
+            { 新增發票字軌 }
+        </h1>
+        <!------------ 內容 ------------>
+        <div class="container">
+            <div class="row">
+                <!-- 左邊選單 -->
+                <div class="col-3">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        發票
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="periodManage.html">發票字軌查詢</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoiceAdd.html">發票開立</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoiceManage.html" tabindex="-1"
+                                                aria-disabled="true">發票查詢</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        客製化管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="buyerManage.html">顧客資料查詢</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- 右邊查詢內容 -->
+                <div class="col-9">
+                    <form id=periodAddForm>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th width="15%" scope="col" class="text-center">年份</th>
+                                    <th width="18%" scope="col" class="text-center">期別</th>
+                                    <th width="10%" scope="col" class="text-center">字軌</th>
+                                    <th scope="col" class="text-center">起迄號碼</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceform">
+                                <tr id="firstTr">
+                                    <td>
+                                        <input type="text" class="form-control" list="yearDatalist" id="yearAdd"
+                                            required>
+                                        <datalist id="yearDatalist"></datalist>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" list="periodOption" id="period"
+                                            required>
+                                        <datalist id="periodOption">
+                                            <option value="1月-2月"></option>
+                                            <option value="3月-4月"></option>
+                                            <option value="5月-6月"></option>
+                                            <option value="7月-8月"></option>
+                                            <option value="9月-10月"></option>
+                                            <option value="11月-12月"></option>
+                                        </datalist>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="letter" required>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="起始號碼" id="startNum"
+                                                    required>
+                                            </div>
+                                            <div class="col-0 d-flex align-items-center justify-content-centerf">~</div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="結束號碼" id="endNum"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <button type="submit" class="btn-lg btn-light mr-5">新增字軌</button>
+                            <button type="button" class="btn-lg btn-light ">重設</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/periodAdd.js"></script>
+    </div>
+</body>
+
+</html>

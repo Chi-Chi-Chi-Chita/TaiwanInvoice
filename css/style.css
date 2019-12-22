@@ -1,0 +1,33 @@
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* outline: 1px red dotted; */
+}
+.allContainer{
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.header{
+    text-align: center;    
+}
+.block{
+    width:100%;
+    margin: auto;
+    padding: 30px;
+}
+#info, #buyerInfo{
+    color:red;
+}
+#loginContainer{
+    background-image:url('../img/login_bg.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center;
+}
+#login{
+    max-width: 500px;
+    height: 400px;
+}

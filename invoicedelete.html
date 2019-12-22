@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>電子發票管理小幫手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="allContainer">
+        <ul class="nav justify-content-end">
+            <div class="dropdown">
+                <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="material-icons">
+                        person_outline
+                    </i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">會員資料修改</a>
+                    <a class="dropdown-item" href="#">登出</a>
+                </div>
+            </div>
+
+        </ul>
+        <h1 class="header bg-warning mt-1 mb-4 py-2">
+            { 電子發票作廢 CSV 轉檔服務 }
+        </h1>
+        <!------------ 內容 ------------>
+        <div class="container">
+            <div class="row">
+                <!-- 左邊選單 -->
+                <div class="col-3">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        發票
+                                    </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoiceAdd.html">發票開立</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="invoiceManage.html" tabindex="-1"
+                                                aria-disabled="true">發票管理</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        客製化管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#">買受人建檔</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">買受人維護</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- 右邊開立內容 -->
+                <div class="col-9">
+                    <form class="block card mb-3">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">賣方統一編號</label>
+                                <input type="text" class="form-control sellTaxNumber" id="inputEmail4"
+                                    placeholder="Sell Tax Number">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">賣方公司名稱</label>
+                                <input type="text" class="form-control sellName" id="inputPassword4"
+                                    placeholder="Sell Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">賣方公司地址</label>
+                            <input type="text" class="form-control sellAdd" id="inputAddress" placeholder="Sell Add">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">賣方聯絡電話</label>
+                            <input type="text" class="form-control sellTel" id="inputAddress2" placeholder="Sell Tel">
+                        </div>
+                    </form>
+
+                    <form class="block card mb-3">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputEmail4">買方統一編號</label>
+                                <input type="text" class="form-control buyTaxNumber" id="inputEmail4"
+                                    placeholder="Buy Tax Number">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">買方公司名稱</label>
+                                <input type="text" class="form-control buyName" id="inputPassword4"
+                                    placeholder="Buy Name">
+                            </div>
+                        </div>
+                        <p>新增買受人</p>
+                        <div class="form-group">
+                            <label for="inputAddress">買方公司地址</label>
+                            <input type="text" class="form-control buyAdd" id="inputAddress" placeholder="Buy Add">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">買方聯絡電話</label>
+                            <input type="text" class="form-control buyTel" id="inputAddress2" placeholder="Tel">
+                        </div>
+                    </form>
+
+                    <form class="block card mb-3">
+                        <div class="form-row">
+                            <div class="form-group col-md-6" id="">
+                                <label for="inputEmail4">作廢發票字軌</label>
+                                <input type="text" class="form-control invoicePeriod" id="inputEmail4"
+                                    placeholder="Invoice Period">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4">作廢發票號碼</label>
+                                <input type="text" class="form-control invoiceNumber" id="inputPassword4"
+                                    placeholder="Invoice Number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">原發票開立日期</label>
+                            <input type="date" class="form-control invoiceDate" id="inputAddress"
+                                placeholder="Invoice Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">發票作廢日期</label>
+                            <input type="date" class="form-control invoiceDate" id="inputAddress"
+                                placeholder="Invoice Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">發票作廢原因</label>
+                            <input type="text" class="form-control invoiceDate" id="inputAddress">
+                        </div>
+                    </form>
+
+
+                    <button type="button" class="btn btn-primary btnAdd">發票品項新增</button>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">品名</th>
+                                <th width="10%" scope="col" class="text-center">數量</th>
+                                <th width="15%" scope="col" class="text-center">單價(未稅)</th>
+                                <th width="15%" scope="col" class="text-center">金額</th>
+                                <th width="13%" scope="col" class="text-center">處理</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceform">
+                            <tr id="firstTr">
+                                <td><input type="text" class="form-control itemName" placeholder="品名"
+                                        aria-label="Username" aria-describedby="basic-addon1"></td>
+                                <td><input type="text" class="form-control amount" aria-label="Username"
+                                        aria-describedby="basic-addon1"></td>
+                                <td><input type="text" class="form-control unitPrice" aria-label="Username"
+                                        aria-describedby="basic-addon1"></td>
+                                <td class="subtotal"></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="row">課稅別：</th>
+                                <td colspan="4">應稅</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">銷售額(未稅)：</th>
+                                <td colspan="4" id="taxExcluded"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">課稅別：</th>
+                                <td colspan="1">5<span>%</span></td>
+                                <th scope="row">稅金：</th>
+                                <td colspan="2" id="taxPrice">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">總計：</th>
+                                <td colspan="4" id="taxIncluded">
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!------------ 存檔及下載 ------------>
+        <button type="button" class="btn btn-warning btn-lg btn-block output">存檔及CSV 匯出</button>
+
+
+
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/all.js"></script>
+
+    </div>
+</body>
+
+</html>

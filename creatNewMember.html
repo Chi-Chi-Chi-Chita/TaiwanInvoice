@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>電子發票小幫手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="allContainer">
+        <h1 class="header bg-warning mt-3 mb-4">
+            { 會員註冊 }
+        </h1>
+        <!------------ 內容 ------------>
+        <div class="container">
+
+            <form id='creatNewMember'>
+                <div class="card px-3 py-3">
+                    <div class="form-group row">
+                        <label for="compName" class="col-sm-2 col-form-label">企業名稱</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="compName" placeholder="請輸入企業名稱" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="uniformNumbers" class="col-sm-2 col-form-label">統一編號</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="uniformNumbers" pattern="\d{8}"
+                                placeholder="請輸入統一編號" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2 col-form-label"></div>
+                        <div class="col-sm-10" id="info"></div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compAddress" class="col-sm-2 col-form-label">公司地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="compAddress" placeholder="請輸入公司地址" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="compPhoneNumber" class="col-sm-2 col-form-label">登記電話</label>
+                        <div class="col-sm-10">
+                            <input type="tel" class="form-control" id="compPhoneNumber"
+                                placeholder="請輸入公司登記電話 e.g:071234567" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mngrName" class="col-sm-2 col-form-label">聯絡人</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="mngrName" placeholder="請輸入聯絡人" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mngrPhoneNumber" class="col-sm-2 col-form-label">聯絡手機</label>
+                        <div class="col-sm-10">
+                            <input type="mobile" class="form-control" id="mngrPhoneNumber"
+                                placeholder="請輪入聯絡手機 e.g:0912345678" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mngrEmail" class="col-sm-2 col-form-label">聯絡信箱</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="mngrEmail" placeholder="請輪入聯絡信箱" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pwd" class="col-sm-2 col-form-label">密碼</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="pwd" placeholder="請輪入密碼" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <input type="checkbox" id="showPwd">
+                            <label for="showPwd">顯示密碼</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <button type="submit" class="btn-lg btn-light mr-5" id="createBtn">註冊</button>
+                    <button type="reset" class="btn-lg btn-light ">重設</button>
+                </div>
+            </form>
+        </div>
+
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/creatNewMember.js"></script>
+
+
+    </div>
+</body>
+
+</html>
