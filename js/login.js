@@ -13,7 +13,7 @@ form.addEventListener('submit', function (e) {
         "Password": memberPwd,
         "UniformNumbers": memberAccount,
     }
-    console.log(data);
+    // console.log(data);
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;

@@ -122,6 +122,7 @@ invoicePeriodxhr.onload = function () {
     invoicePeriodData = JSON.parse(invoicePeriodxhr.responseText);
     // console.log(invoicePeriodData);
 
+
     for (var i = 0; i < invoicePeriodData.length; i++) {
         // console.log(invoicePeriodData[i]);
         str += `<option value="${invoicePeriodData[i].Letter}"></option>`
@@ -133,6 +134,10 @@ invoicePeriodxhr.onload = function () {
 let invoicePeriodSelected = {};
 
 invoicePeriod.addEventListener('change', function (e) {
+    // console.log(this.value);
+
+    invoiceNumberList.innerHTML = '';
+    invoiceNumber.value = '';
     e.preventDefault();
 
     if (this.value == '') {
@@ -148,6 +153,7 @@ invoicePeriod.addEventListener('change', function (e) {
     invoiceNumxhr.withCredentials = true;
 
     invoiceNumxhr.addEventListener("readystatechange", function () {
+        // console.log(this.readyState);
         if (this.readyState === 4) {
             // console.log(this.responseText);
             if (this.status == 200) {
@@ -165,6 +171,35 @@ invoicePeriod.addEventListener('change', function (e) {
     invoiceNumxhr.open("POST", "http://invoice.rocket-coding.com/InvTables/SelectInvNm");
     invoiceNumxhr.setRequestHeader("Content-Type", "application/json");
     invoiceNumxhr.send(JSON.stringify(invoicePeriodSelected));
+})
+
+//塞 max 跟 min 在發票日期
+invoiceNumber.addEventListener('change', function (e) {
+    let invoiceData = {};
+    invoiceData = {
+        "Letter": invoicePeriod.value,
+        "Num": invoiceNumber.value
+    }
+    // console.log(invoiceData);
+
+    var invoiceDatexhr = new XMLHttpRequest();
+    invoiceDatexhr.withCredentials = true;
+
+    invoiceDatexhr.onload = function () {
+        if (invoiceDatexhr.status !== 200) { return; }
+        let searchResult = JSON.parse(invoiceDatexhr.responseText);
+        console.log(searchResult);
+        searchResultMin = searchResult[0].split('T');
+        searchResultMax = searchResult[1].split('T');
+        invoiceDate.min = searchResultMin[0];
+        invoiceDate.max = searchResultMax[0];
+    }
+
+    invoiceDatexhr.open("POST", "http://invoice.rocket-coding.com/InvTables/SelectInvDt");
+    invoiceDatexhr.setRequestHeader("Content-Type", "application/json");
+
+    invoiceDatexhr.send(JSON.stringify(invoiceData));
+
 })
 
 
@@ -292,6 +327,18 @@ M,${invoicePeriod.value}${invoiceNumber.value},${dateAry[0]}/${dateAry[1]}/${dat
 let outputBtn = document.querySelector('.output');
 outputBtn.addEventListener('click', createCsvFile);
 function createCsvFile() {
+    let formAry = document.querySelectorAll('form');
+    console.log(formAry);
+    let passForm = true;
+    formAry.forEach(function (item) {
+        if (!item.checkValidity()) {
+            alert("全部欄位都必需輸入完成");
+            passForm = false;
+        }
+    });
+    if (!passForm) { return; }
+    // console.log(passForm);
+    // return;
     var fileName = `${invoicePeriod.value}${invoiceNumber.value}.csv`;//匯出的檔名
     var data = invoiceContent();
     submitXHR();

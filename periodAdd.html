@@ -24,7 +24,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="login.html">登出</a>
+                    <a class="dropdown-item" href="logout.html">登出</a>
                 </div>
             </div>
 
@@ -56,14 +56,14 @@
                                             <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage.html">發票字軌查詢</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceManage.html" tabindex="-1"
-                                                aria-disabled="true">發票管理</a>
+                                                aria-disabled="true">發票查詢</a>
                                         </li>
                                     </ul>
 
@@ -87,7 +87,7 @@
                                             <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="buyerManage.html">顧客資料維護</a>
+                                            <a class="nav-link" href="buyerManage.html">顧客資料查詢</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -113,11 +113,13 @@
                             <tbody id="invoiceform">
                                 <tr id="firstTr">
                                     <td>
-                                        <input type="text" class="form-control" list="yearDatalist" id="yearAdd">
+                                        <input type="text" class="form-control" list="yearDatalist" id="yearAdd"
+                                            required>
                                         <datalist id="yearDatalist"></datalist>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" list="periodOption" id="period">
+                                        <input type="text" class="form-control" list="periodOption" id="period"
+                                            required>
                                         <datalist id="periodOption">
                                             <option value="1月-2月"></option>
                                             <option value="3月-4月"></option>
@@ -128,17 +130,18 @@
                                         </datalist>
                                     </td>
                                     <td>
-                                        <input type="text" class="form-control" id="letter">
+                                        <input type="text" class="form-control" id="letter" required>
                                     </td>
                                     <td>
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="起始號碼"
-                                                    id="startNum">
+                                                <input type="text" class="form-control" placeholder="起始號碼" id="startNum"
+                                                    required>
                                             </div>
                                             <div class="col-0 d-flex align-items-center justify-content-centerf">~</div>
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="結束號碼" id="endNum">
+                                                <input type="text" class="form-control" placeholder="結束號碼" id="endNum"
+                                                    required>
                                             </div>
                                         </div>
                                     </td>

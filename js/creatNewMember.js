@@ -19,7 +19,7 @@ uniformNumbersInput.addEventListener('keyup', function (e) {
 
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-                console.log(this.responseText);
+                // console.log(this.responseText);
                 if (this.status == 200) {
                     if (this.responseText == 'true') {
                         // console.log('這個統編註冊過了')
@@ -72,9 +72,10 @@ form.addEventListener('submit', function (e) {
         "CompAddress": compAddress,
         "CompPhoneNumber": compPhoneNumber,
     }
-    console.log(data);
+    // console.log(data);
 
     var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function () {
 
@@ -101,6 +102,22 @@ form.addEventListener('submit', function (e) {
 
 })
 
+// 對顯示密碼做處理
+var pwdInput = document.querySelector('#pwd')
+var showPwd = document.querySelector('#showPwd')
+
+showPwd.addEventListener('change', function (e) {
+    var target = e.target || e.srcElement;
+    try {
+        if (target.checked) {
+            pwdInput.type = 'text';
+        } else {
+            pwdInput.type = 'password';
+        }
+    } catch (error) {
+        alert('無法顯示密碼');
+    }
+});
 
 
 

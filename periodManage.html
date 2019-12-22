@@ -24,13 +24,13 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="#">登出</a>
+                    <a class="dropdown-item" href="logout.html">登出</a>
                 </div>
             </div>
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 發票字軌管理 }
+            { 發票字軌查詢 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -56,14 +56,14 @@
                                             <a class="nav-link" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage.html">發票字軌查詢</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceManage.html" tabindex="-1"
-                                                aria-disabled="true">發票管理</a>
+                                                aria-disabled="true">發票查詢</a>
                                         </li>
                                     </ul>
 
@@ -84,10 +84,10 @@
                                 <div class="card-body">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">買受人建檔</a>
+                                            <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">買受人維護</a>
+                                            <a class="nav-link" href="buyerManage.html">顧客資料查詢</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,31 +100,56 @@
                 </div>
                 <!-- 右邊查詢內容 -->
                 <div class="col-9">
-                    <form class="block card mb-3">
-                        <div>查詢發票開立日</div>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="年">
-                            </div>
-                            <div class="form-group col">
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="期別">
-                            </div>
-                            <div class="form-group col-1 d-flex align-items-center justify-content-center">至</div>
-                            <div class="form-group col">
-                                <input type="text" class="form-control" id="inputPassword4" placeholder="年">
-                            </div>
-                            <div class="form-group col">
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="期別">
+                    <form id="periodManageForm">
+                        <div class="block card mb-3">
+                            <div class="mb-3">查詢發票期別</div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" id="invoiceStartYear" placeholder="年"
+                                        list="invoiceStartYearList" required>
+                                    <datalist id="invoiceStartYearList"></datalist>
+                                </div>
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" id="invoiceStartPeriod" placeholder="期別"
+                                        list="invoiceStartPeriodList" required>
+                                    <datalist id="invoiceStartPeriodList">
+                                        <option value="1月-2月"></option>
+                                        <option value="3月-4月"></option>
+                                        <option value="5月-6月"></option>
+                                        <option value="7月-8月"></option>
+                                        <option value="9月-10月"></option>
+                                        <option value="11月-12月"></option>
+                                    </datalist>
+                                </div>
+                                <div class="form-group col-1 d-flex align-items-center justify-content-center">至</div>
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" id="invoiceEndYear" placeholder="年"
+                                        list="invoiceEndYearList" required>
+                                    <datalist id="invoiceEndYearList"></datalist>
+                                </div>
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" id="invoiceEndPeriod"
+                                        list="invoiceEndPeriodList" placeholder="期別" required>
+                                    <datalist id="invoiceEndPeriodList">
+                                        <option value="1月-2月"></option>
+                                        <option value="3月-4月"></option>
+                                        <option value="5月-6月"></option>
+                                        <option value="7月-8月"></option>
+                                        <option value="9月-10月"></option>
+                                        <option value="11月-12月"></option>
+                                    </datalist>
+                                </div>
                             </div>
                         </div>
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <button type="submit" class="btn-lg btn-light mr-5">查詢</button>
+                            <button type="reset" class="btn-lg btn-light ">重設</button>
+                        </div>
                     </form>
-                    <div class="d-flex align-items-center justify-content-center mb-3">
-                        <button type="button" class="btn-lg btn-light mr-5">查詢</button>
-                        <button type="button" class="btn-lg btn-light ">重設</button>
-                    </div>
 
-                    <table class="table table-bordered">
-                        <thead>
+
+                    <table class="table table-bordered" id="periodResultTable">
+                        <!-- <thead>
                             <tr>
                                 <th scope="col" class="text-center">年份</th>
                                 <th scope="col" class="text-center">期別</th>
@@ -133,8 +158,8 @@
                                 <th scope="col" class="text-center">處理</th>
                             </tr>
                         </thead>
-                        <tbody id="invoiceform">
-                            <tr id="firstTr">
+                        <tbody>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -145,12 +170,9 @@
                                     <a href="invoiceList.html" class="btn btn-info">明細</a>
                                 </td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
-
-
                 </div>
-
             </div>
         </div>
 
@@ -158,7 +180,7 @@
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/all.js"></script>
+        <script src="js/periodManage.js"></script>
 
     </div>
 </body>

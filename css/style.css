@@ -21,3 +21,13 @@
 #info, #buyerInfo{
     color:red;
 }
+#loginContainer{
+    background-image:url('../img/login_bg.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center;
+}
+#login{
+    max-width: 500px;
+    height: 400px;
+}

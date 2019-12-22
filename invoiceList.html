@@ -24,13 +24,13 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="#">登出</a>
+                    <a class="dropdown-item" href="login.html">登出</a>
                 </div>
             </div>
 
         </ul>
         <h1 class="header bg-warning mt-1 mb-4 py-2">
-            { 發票明細及下載 }
+            { 空白未使用發票 }
         </h1>
         <!------------ 內容 ------------>
         <div class="container">
@@ -56,14 +56,14 @@
                                             <a class="nav-link" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage.html">發票字軌查詢</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceManage.html" tabindex="-1"
-                                                aria-disabled="true">發票管理</a>
+                                                aria-disabled="true">發票查詢</a>
                                         </li>
                                     </ul>
 
@@ -84,10 +84,10 @@
                                 <div class="card-body">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#">買受人建檔</a>
+                                            <a class="nav-link active" href="buyerAdd.html">買受人建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">買受人維護</a>
+                                            <a class="nav-link" href="buyerManage.html">買受人查詢</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -100,7 +100,7 @@
                 </div>
                 <!-- 右邊查詢內容 -->
                 <div class="col-9">
-                    <form class="block card mb-3">
+                    <!-- <form class="block card mb-3">
                         <div>查詢發票開立日</div>
                         <div class="form-row">
                             <div class="form-group col">
@@ -121,36 +121,36 @@
                     <div class="d-flex align-items-center justify-content-center mb-3">
                         <button type="button" class="btn-lg btn-light mr-5">查詢</button>
                         <button type="button" class="btn-lg btn-light ">重設</button>
-                    </div>
+                    </div> -->
 
-                    <table class="table table-bordered">
-                        <thead>
+                    <table class="table table-bordered" id="invoiceListTable">
+                        <!-- <thead>
                             <tr>
-                                <th scope="col" class="text-center">發票期別</th>
-                                <th scope="col" class="text-center">發票號碼</th>
-                                <th scope="col" class="text-center">買受人</th>
-                                <th scope="col" class="text-center">金額</th>
-                                <th scope="col" class="text-center">狀態</th>
+                                <th scope="col" class="text-center">總機構</th>
+                                <th scope="col" class="text-center">發票類別</th>
+                                <th scope="col" class="text-center">發票字軌</th>
+                                <th scope="col" class="text-center">起始編號</th>
+                                <th scope="col" class="text-center">終止編號</th>
                             </tr>
                         </thead>
-                        <tbody id="invoiceform">
-                            <tr id="firstTr">
+                        <tbody>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td width="40%"></td>
                                 <td width="13%"></td>
-                                <td width="13%" class="text-center">己使用</td>
+                                <td width="13%" class="text-center">空白未使用</td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
 
                     </table>
 
                     <!------------ 下載 PDF 或 EXCEL ------------>
-                    <div class="d-flex align-items-center justify-content-center">
+                    <!-- <div class="d-flex align-items-center justify-content-center">
                         <button type="button" class="btn btn-outline-primary mr-3">PDF檔案格式下載</button>
                         <button type="button" class="btn btn-outline-primary">EXCEL檔案格式下載</button>
 
-                    </div>
+                    </div> -->
 
 
                 </div>
@@ -163,7 +163,7 @@
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/all.js"></script>
+        <script src="js/invoiceList.js"></script>
 
     </div>
 </body>

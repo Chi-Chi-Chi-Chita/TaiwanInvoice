@@ -12,47 +12,28 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
-<body>
+<body id="loginContainer">
     <div class="allContainer">
-        <ul class="nav justify-content-end">
-
-
-        </ul>
-        <!------------ 內容 ------------>
-        <div class="container">
-            <div class="row ">
-                <!-- 左邊選單 -->
-                <div class="col-5"></div>
-                <!-- 右邊查詢內容 -->
-                <div class="col-6">
-                    <form id="login" class="block card mt-5">
-                        <h1 class="text-center my-4">登入</h1>
-                        <input type="text" class="form-control form-control-lg" id="memberAccount"
-                            placeholder="會員帳號(統一編號)" value="29186700">
-                        <input type="password" class="form-control form-control-lg my-4" id="memberPwd" placeholder="密碼"
-                            value="qq123">
-                        <button type="submit" class="btn-lg btn-warning" id="createBtn">登入</button>
-                        <div class="row d-flex justify-content-between mt-3">
-                            <div class="col">
-                                <a class="btn btn-block btn-lg btn-warning" href="creatNewMember.html"
-                                    role="button">註冊</a>
-                            </div>
-                            <div class="col">
-                                <a class="btn btn-block btn-lg btn-warning" href="#" role="button">忘記密碼</a>
-                            </div>
-                        </div>
-                    </form>
+        <form id="login" class="block card mt-5">
+            <h1 class="text-center my-4">登入</h1>
+            <input type="text" class="form-control form-control-lg" id="memberAccount" placeholder="會員帳號(統一編號)">
+            <input type="password" class="form-control form-control-lg my-4" id="memberPwd" placeholder="密碼">
+            <button type="submit" class="btn-lg btn-warning" id="createBtn">登入</button>
+            <div class="row d-flex justify-content-between mt-3">
+                <div class="col">
+                    <a class="btn btn-block btn-lg btn-warning" href="creatNewMember.html" role="button">註冊</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-block btn-lg btn-warning" href="#" role="button">忘記密碼</a>
                 </div>
             </div>
-        </div>
-
-
-        <script src="js/jquery-3.4.1.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/login.js"></script>
-
+        </form>
     </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

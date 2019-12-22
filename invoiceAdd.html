@@ -24,7 +24,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">會員資料修改</a>
-                    <a class="dropdown-item" href="login.html">登出</a>
+                    <a class="dropdown-item" href="logout.html">登出</a>
                 </div>
             </div>
 
@@ -55,14 +55,14 @@
                                             <a class="nav-link active" href="periodAdd.html">新增發票字軌</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="periodManage.html">發票字軌管理</a>
+                                            <a class="nav-link" href="periodManage.html">發票字軌查詢</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceAdd.html">發票開立</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="invoiceManage.html" tabindex="-1"
-                                                aria-disabled="true">發票管理</a>
+                                                aria-disabled="true">發票查詢</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -85,7 +85,7 @@
                                             <a class="nav-link active" href="buyerAdd.html">顧客資料建檔</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="buyerManage.html">顧客資料維護</a>
+                                            <a class="nav-link" href="buyerManage.html">顧客資料查詢</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -102,115 +102,123 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="sellTaxNumber">賣方統一編號</label>
-                                <input type="text" class="form-control" id="sellTaxNumber">
+                                <input type="text" class="form-control" id="sellTaxNumber" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="sellName">賣方公司名稱</label>
-                                <input type="text" class="form-control" id="sellName">
+                                <input type="text" class="form-control" id="sellName" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="sellAdd">賣方公司地址</label>
-                            <input type="text" class="form-control" id="sellAdd">
+                            <input type="text" class="form-control" id="sellAdd" required>
                         </div>
                         <div class="form-group">
                             <label for="sellTel">賣方聯絡電話</label>
-                            <input type="text" class="form-control " id="sellTel">
+                            <input type="text" class="form-control " id="sellTel" required>
                         </div>
                     </form>
                     <form class="block card mb-3">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="buyTaxNumber">顧客統一編號</label>
-                                <input type="text" class="form-control" id="buyTaxNumber">
+                                <input type="text" class="form-control" id="buyTaxNumber" required>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="buyName">顧客公司名稱</label>
                                 <input type="text" class="form-control " id="buyName" list="json-datalist"
-                                    placeholder="請輸入顧客公司名稱">
+                                    placeholder="請輸入顧客公司名稱關鍵字" required>
                                 <datalist id="json-datalist"></datalist>
                             </div>
                         </div>
-                        <p>顧客資料建檔</p>
+                        <p class="text-right">
+                            <button type="button" class="btn btn-link"
+                                onclick="location.href='buyerAdd.html'">顧客資料建檔</button>
+                        </p>
                         <div class="form-group">
                             <label for="buyAdd">顧客公司地址</label>
-                            <input type="text" class="form-control" id="buyAdd">
+                            <input type="text" class="form-control" id="buyAdd" required>
                         </div>
                         <div class="form-group">
                             <label for="buyTel">顧客聯絡電話</label>
-                            <input type="text" class="form-control" id="buyTel">
+                            <input type="text" class="form-control" id="buyTel" required>
                         </div>
                     </form>
                     <form class="block card mb-3">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="invoicePeriod">發票字軌</label>
-                                <input type="text" class="form-control" id="invoicePeriod" list="invoicePeriodList">
+                                <input type="text" class="form-control" id="invoicePeriod" list="invoicePeriodList"
+                                    required>
                                 <datalist id="invoicePeriodList"></datalist>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="invoiceNumber">發票號碼</label>
-                                <input type="text" class="form-control" id="invoiceNumber" list="invoiceNumberList">
+                                <input type="text" class="form-control" id="invoiceNumber" list="invoiceNumberList"
+                                    required>
                                 <datalist id="invoiceNumberList"></datalist>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputDate">發票開立日期</label>
-                            <input type="date" class="form-control" id="invoiceDate">
+                            <input type="date" class="form-control" id="invoiceDate" required>
                         </div>
                     </form>
 
                     <button type="button" class="btn btn-primary btnAdd">發票品項新增</button>
 
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center">品名</th>
-                                <th width="12%" scope="col" class="text-center">數量</th>
-                                <th width="15%" scope="col" class="text-center">單價(未稅)</th>
-                                <th width="15%" scope="col" class="text-center">金額</th>
-                                <th width="13%" scope="col" class="text-center">處理</th>
-                            </tr>
-                        </thead>
-                        <tbody id="invoiceform">
-                            <tr id="firstTr">
-                                <td>
-                                    <input type="text" class="form-control itemName" placeholder="品名"
-                                        aria-label="Username" aria-describedby="basic-addon1">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control amount" placeholder="數量"
-                                        aria-label="Username" aria-describedby="basic-addon1">
-                                </td>
-                                <td><input type="text" class="form-control unitPrice" aria-label="Username"
-                                        aria-describedby="basic-addon1"></td>
-                                <td class="subtotal"></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th scope="row">課稅別：</th>
-                                <td colspan="4">應稅</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">銷售額(未稅)：</th>
-                                <td colspan="4" id="taxExcluded"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">課稅別：</th>
-                                <td colspan="1">5<span>%</span></td>
-                                <th scope="row">稅金：</th>
-                                <td colspan="2" id="taxPrice">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">總計：</th>
-                                <td colspan="4" id="taxIncluded">
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    <form>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="text-center">品名</th>
+                                    <th width="12%" scope="col" class="text-center">數量</th>
+                                    <th width="15%" scope="col" class="text-center">單價(未稅)</th>
+                                    <th width="15%" scope="col" class="text-center">金額</th>
+                                    <th width="13%" scope="col" class="text-center">處理</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceform">
+                                <tr id="firstTr">
+                                    <td>
+                                        <input type="text" class="form-control itemName" placeholder="品名"
+                                            aria-label="Username" aria-describedby="basic-addon1" required>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control amount" placeholder="數量"
+                                            aria-label="Username" aria-describedby="basic-addon1" required>
+                                    </td>
+                                    <td><input type="text" class="form-control unitPrice" aria-label="Username"
+                                            aria-describedby="basic-addon1" required></td>
+                                    <td class="subtotal"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row">課稅別：</th>
+                                    <td colspan="4">應稅</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">銷售額(未稅)：</th>
+                                    <td colspan="4" id="taxExcluded"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">課稅別：</th>
+                                    <td colspan="1">5<span>%</span></td>
+                                    <th scope="row">稅金：</th>
+                                    <td colspan="2" id="taxPrice">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">總計：</th>
+                                    <td colspan="4" id="taxIncluded">
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+
 
                 </div>
 
