@@ -49,7 +49,7 @@ form.addEventListener('submit', function (e) {
         "StartNum": startNum,
         "EndNum": endNum
     }
-    console.log(data);
+    // console.log(data);
 
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
@@ -70,7 +70,7 @@ form.addEventListener('submit', function (e) {
         }
     });
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvLetters/CreadeInvLet");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvLetters/CreadeInvLet");
     xhr.setRequestHeader("Content-Type", "application/json");
 
 

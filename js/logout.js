@@ -10,7 +10,7 @@ xhr.addEventListener("readystatechange", function () {
     }
 });
 
-xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/SignOut");
+xhr.open("POST", "https://invoice.rocket-coding.com/InvAccounts/SignOut");
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 xhr.send(data);

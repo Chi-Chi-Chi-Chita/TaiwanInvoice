@@ -10,7 +10,7 @@ var sellData;
 var xhr = new XMLHttpRequest();
 xhr.withCredentials = true;
 
-xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/LoadCliInfo", true);
+xhr.open("POST", "https://invoice.rocket-coding.com/InvAccounts/LoadCliInfo", true);
 xhr.setRequestHeader("Content-Type", "application/json");
 xhr.send();
 
@@ -57,7 +57,7 @@ buyName.addEventListener('input', function (e) {
                 buyAdd.value = itemObj.CompAddress;
                 buyTel.value = itemObj.CompPhoneNumber;
                 ClientId = itemObj.Id;
-                console.log('顧客ID是' + ClientId);
+                // console.log('顧客ID是' + ClientId);
                 return;
             }
         })
@@ -68,7 +68,7 @@ buyName.addEventListener('input', function (e) {
     var xhrBuyerData = new XMLHttpRequest(); // 透過 HTTP 跟對方打招呼
     xhrBuyerData.withCredentials = true;
 
-    xhrBuyerData.open("POST", "http://invoice.rocket-coding.com/InvClientInfoes/AutoCliCn");
+    xhrBuyerData.open("POST", "https://invoice.rocket-coding.com/InvClientInfoes/AutoCliCn");
     xhrBuyerData.setRequestHeader("Content-Type", "application/json");
     xhrBuyerData.send(JSON.stringify(buyerSearchData));
 
@@ -113,7 +113,7 @@ let invoicePeriodData;
 let invoicePeriodxhr = new XMLHttpRequest();
 invoicePeriodxhr.withCredentials = true;
 
-invoicePeriodxhr.open("POST", "http://invoice.rocket-coding.com/InvLetters/SelectInvLet", true);
+invoicePeriodxhr.open("POST", "https://invoice.rocket-coding.com/InvLetters/SelectInvLet", true);
 invoicePeriodxhr.setRequestHeader("Content-Type", "application/json");
 invoicePeriodxhr.send(null);
 
@@ -168,7 +168,7 @@ invoicePeriod.addEventListener('change', function (e) {
         }
     });
 
-    invoiceNumxhr.open("POST", "http://invoice.rocket-coding.com/InvTables/SelectInvNm");
+    invoiceNumxhr.open("POST", "https://invoice.rocket-coding.com/InvTables/SelectInvNm");
     invoiceNumxhr.setRequestHeader("Content-Type", "application/json");
     invoiceNumxhr.send(JSON.stringify(invoicePeriodSelected));
 })
@@ -188,14 +188,14 @@ invoiceNumber.addEventListener('change', function (e) {
     invoiceDatexhr.onload = function () {
         if (invoiceDatexhr.status !== 200) { return; }
         let searchResult = JSON.parse(invoiceDatexhr.responseText);
-        console.log(searchResult);
+        // console.log(searchResult);
         searchResultMin = searchResult[0].split('T');
         searchResultMax = searchResult[1].split('T');
         invoiceDate.min = searchResultMin[0];
         invoiceDate.max = searchResultMax[0];
     }
 
-    invoiceDatexhr.open("POST", "http://invoice.rocket-coding.com/InvTables/SelectInvDt");
+    invoiceDatexhr.open("POST", "https://invoice.rocket-coding.com/InvTables/SelectInvDt");
     invoiceDatexhr.setRequestHeader("Content-Type", "application/json");
 
     invoiceDatexhr.send(JSON.stringify(invoiceData));
@@ -306,17 +306,17 @@ M,${invoicePeriod.value}${invoiceNumber.value},${dateAry[0]}/${dateAry[1]}/${dat
         let thisUnitPrice = document.querySelector(`#${thisId} input.unitPrice`).value;
         let thisSubtotal = document.querySelector(`#${thisId} td.subtotal`).textContent;
 
-        console.log(thisitemName);
-        console.log(thisAmount);
-        console.log(thisUnitPrice);
-        console.log(thisSubtotal);
-        console.log(invoiceformAry[i]);
+        // console.log(thisitemName);
+        // console.log(thisAmount);
+        // console.log(thisUnitPrice);
+        // console.log(thisSubtotal);
+        // console.log(invoiceformAry[i]);
 
         contentString += `D,${thisitemName},${thisAmount},${thisUnitPrice},${thisSubtotal},\n`
-        console.log(contentString);
+        // console.log(contentString);
 
         submitAry.push({ "Item": thisitemName, "Count": thisAmount, "Price": thisSubtotal })
-        console.log(submitAry);
+        // console.log(submitAry);
     }
 
 
@@ -328,7 +328,7 @@ let outputBtn = document.querySelector('.output');
 outputBtn.addEventListener('click', createCsvFile);
 function createCsvFile() {
     let formAry = document.querySelectorAll('form');
-    console.log(formAry);
+    // console.log(formAry);
     let passForm = true;
     formAry.forEach(function (item) {
         if (!item.checkValidity()) {
@@ -365,7 +365,7 @@ function submitXHR() {
         "Service": submitAry,
     }
 
-    console.log(JSON.stringify(submitData));
+    // console.log(JSON.stringify(submitData));
 
     var submitXhr = new XMLHttpRequest();
     submitXhr.withCredentials = true;
@@ -386,7 +386,7 @@ function submitXHR() {
         }
     });
 
-    submitXhr.open("POST", "http://invoice.rocket-coding.com/InvTables/FinishInv");
+    submitXhr.open("POST", "https://invoice.rocket-coding.com/InvTables/FinishInv");
     submitXhr.setRequestHeader("Content-Type", "application/json");
 
     submitXhr.send(JSON.stringify(submitData));

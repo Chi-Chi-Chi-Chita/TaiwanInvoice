@@ -20,7 +20,7 @@ form.addEventListener('submit', function (e) {
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
-            console.log(this.responseText);
+            // console.log(this.responseText);
             if (this.status == 200) {
                 if (this.responseText == 'true') {
                     window.location = 'invoiceAdd.html'
@@ -33,7 +33,7 @@ form.addEventListener('submit', function (e) {
         }
     });
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/Login");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvAccounts/Login");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));

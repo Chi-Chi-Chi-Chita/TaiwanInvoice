@@ -27,7 +27,7 @@ uniformNumbersInput.addEventListener('keyup', function (e) {
                         createBtn.disabled = true;
                     } else {
                         info.textContent = ''
-                        console.log("沒有註冊過")
+                        // console.log("沒有註冊過")
                         createBtn.disabled = false;
                     }
                 } else {
@@ -36,7 +36,7 @@ uniformNumbersInput.addEventListener('keyup', function (e) {
             }
         });
 
-        xhr.open("POST", "http://invoice.rocket-coding.com/InvAccounts/CheckAcUn");
+        xhr.open("POST", "https://invoice.rocket-coding.com/InvAccounts/CheckAcUn");
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.send(JSON.stringify(uniformNumbersValueData));
@@ -86,15 +86,15 @@ form.addEventListener('submit', function (e) {
                 if (this.responseText == 'true') {
                     window.location = 'registerdone.html'
                 } else {
-                    alert("ooooooooops")
+                    alert("建檔失敗")
                 }
             } else {
-                alert('夾啦誒夾啦')//伺服器打回來的狀況
+                alert('伺服器QQ')//伺服器打回來的狀況
             }
         }
     });
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/invAccounts/CreadeAcInfo");//寫地址
+    xhr.open("POST", "https://invoice.rocket-coding.com/invAccounts/CreadeAcInfo");//寫地址
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.withCredentials = true;
 
