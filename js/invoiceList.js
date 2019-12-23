@@ -18,7 +18,7 @@ if (urlParmas.has('id')) {
 
     }
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvTables/Pdf");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvTables/Pdf");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));

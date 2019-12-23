@@ -22,7 +22,7 @@ form.addEventListener('submit', function (e) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvTables/SearchInvInfo");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvTables/SearchInvInfo");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));

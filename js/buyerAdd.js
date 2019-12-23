@@ -29,12 +29,12 @@ buyerUniformNumInput.addEventListener('keyup', function (e) {
                         buyerCreateBtn.disabled = false;
                     }
                 } else {
-                    alert("伺服器富奸了！") //伺服器打回來的狀況
+                    alert("伺服器QQ！") //伺服器打回來的狀況
                 }
             }
         });
 
-        xhr.open("POST", "http://invoice.rocket-coding.com/InvClientInfoes/CheckCliUn");
+        xhr.open("POST", "https://invoice.rocket-coding.com/InvClientInfoes/CheckCliUn");
         xhr.setRequestHeader("Content-Type", "application/json");
 
         xhr.send(JSON.stringify(buyerUniformNumData))
@@ -94,7 +94,7 @@ form.addEventListener('submit', function (e) {
         }
     })
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvClientInfoes/CreadeCliInfo");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvClientInfoes/CreadeCliInfo");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));

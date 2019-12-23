@@ -91,7 +91,7 @@ form.addEventListener('submit', function (e) {
     var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
-    xhr.open("POST", "http://invoice.rocket-coding.com/InvLetters/SearchInvLet");
+    xhr.open("POST", "https://invoice.rocket-coding.com/InvLetters/SearchInvLet");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
@@ -107,7 +107,7 @@ form.addEventListener('submit', function (e) {
 });
 
 function showResult(searchResult) {
-    console.log(searchResult);
+    // console.log(searchResult);
     let table = document.querySelector('#periodResultTable');
 
     let tableContent =
