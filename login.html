@@ -27,6 +27,19 @@
                     <a class="btn btn-block btn-lg btn-warning" href="#" role="button">忘記密碼</a>
                 </div>
             </div>
+            <!-- 機器人測試開始 -->
+            <input type="hidden" name="hiddenToken" id="hiddenToken">
+            <script src="https://www.google.com/recaptcha/api.js?render=6LfdW8kUAAAAALA7re_nIGJSvSNIaLiLabR8eFbG">
+            </script>
+            <script>
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('6LfdW8kUAAAAALA7re_nIGJSvSNIaLiLabR8eFbG', { action: 'social' }).then(function (token) {
+                        // console.log(token);
+                        document.getElementById("hiddenToken").value = token;
+                    });
+                });
+            </script>
+            <!-- 機器人測試結束 -->
         </form>
     </div>
 
