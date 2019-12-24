@@ -37,6 +37,32 @@ form.addEventListener('submit', function (e) {
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
+
+    // 機器人開始
+    robotData = robotValue;
+
+    var robotxhr = new XMLHttpRequest();
+    robotxhr.withCredentials = true;
+
+    robotxhr.addEventListener("readystatechange", function () {
+
+        //readayState 是我這裡(xhr)做了什麼
+        if (this.readyState === 4) {
+            // console.log(this.responseText);
+            if (this.status == 200) {
+                if (this.responseText == 'false') { return; }
+            }
+        }
+    });
+
+    robotxhr.open("POST", "invoice.rocket-coding.com/InvAccounts/IsRobot");//寫地址
+    robotxhr.setRequestHeader("Content-Type", "application/json");
+    robotxhr.withCredentials = true;
+
+    robotxhr.send(robotData);
+    // 機器人結束
+
+
 })
 
 
